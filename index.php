@@ -3,6 +3,9 @@ $loginError = isset($_SESSION['login_error']) ? $_SESSION['login_error'] : '';
 $registerError = isset($_SESSION['register_error']) ? $_SESSION['register_error'] : '';
 unset($_SESSION['login_error']);
 unset($_SESSION['register_error']); ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +16,17 @@ unset($_SESSION['register_error']); ?>
     <link rel="stylesheet" href="style.css">
     <title>TOURIST SPOTS</title>
     <script>
-        window.loginError = "<?php echo $loginError; ?>";
-        window.registerError = "<?php echo $registerError; ?>";
+        window.onload = function() {
+            const loginError = "<?php echo $loginError; ?>";
+            const registerError = "<?php echo $registerError; ?>";
+            if (loginError) {
+                alert(loginError);
+            }
+            if (registerError) {
+                alert(registerError);
+            }
+        };
     </script>
-</head>
 
 <body>
     <header>
